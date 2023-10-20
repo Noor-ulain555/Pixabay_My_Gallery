@@ -37,7 +37,7 @@ The user interface is designed with a focus on a seamless user experience, ensur
   <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/e35c1d15-7238-40d0-ac43-f79d2439c0fb"  alt="All Images" width="200"/>
   <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/c393fc71-425d-4e8a-a1bb-e2648e26d0e0"  alt="All Images" width="200"/>
   <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/c7678811-f700-4c09-831f-fe4e3e9ed6c9"  alt="All Images" width="200"/>
-  <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/e7aeaf6e-59e9-4def-87d8-5b94ad4a91bf"  alt="All Images" width="200"/> 
-  <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/3b61decf-af56-4913-badf-e5b022e0104f"  alt="All Images" width="200"/>
   <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/3267859f-3d73-49aa-b32e-e3c69150fc7c"  alt="All Images" width="200"/>
+  <img src="https://github.com/Noor-ulain555/Pixabay_My_Gallery/assets/145388440/816d35da-b2aa-4a3a-994f-91fe0ef39425"  alt="All Images" width="200"/>
+
  </p
