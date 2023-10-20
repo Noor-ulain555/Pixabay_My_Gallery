@@ -1,7 +1,5 @@
 # Pixabay_My_Gallery
 
-# Category: Image Gallery & Management
-
 # Description:
 
 The Pixabay Gallery App is a feature-rich Android application that offers a curated collection of images sourced from the Pixabay API. It combines the power of Retrofit for efficient network requests, Room Database for offline image access, and the MVVM architecture for clean code organization. Users can explore various image categories, view detailed descriptions, and save their favorite images.
