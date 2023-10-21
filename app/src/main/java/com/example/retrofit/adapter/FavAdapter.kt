@@ -21,7 +21,7 @@ class FavAdapter(private val favList: ArrayList<Favorites>) : RecyclerView.Adapt
 
         inner class MyHolder(private val binding: FavlayoutBinding) : RecyclerView.ViewHolder(binding.root) {
             fun bind(item: Favorites) {
-                Picasso.get().load(item.largeImageURL).into(binding.imageView)
+                Picasso.get().load(item.largeImageURL).into(binding.photo)
 
                 binding.deletebtn.setOnClickListener {
                     delBtnListeber?.onDelButtonClick(item)

@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.retrofit.adapter.ImageAdapter
+import com.example.retrofit.adapter.GalleryAdapter
 import com.example.retrofit.galleryApplication.GalleryApplication
 import com.example.retrofit.databinding.ActivityMainBinding
 import com.example.retrofit.model.Favorites
@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var loader: ProgressBar
 
-
     lateinit var mainViewModel: GalleryModel
 
     @SuppressLint("SuspiciousIndentation")
@@ -35,24 +34,23 @@ class MainActivity : AppCompatActivity() {
 
         loader = binding.loader
 
-
         val repository = (application as GalleryApplication).GalleryRepository
 
-        mainViewModel = ViewModelProvider(this, Viewmodelfactory(repository)).get(GalleryModel::class.java)
+        mainViewModel = ViewModelProvider(this, Viewmodelfactory(repository))
+            .get(GalleryModel::class.java)
+
 
         recyclerView = binding.ImageRecycler
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val adapter = ImageAdapter(this@MainActivity, emptyList(), { clickedImage ->
+        val adapter = GalleryAdapter(this@MainActivity, emptyList(), { clickedImage ->
+
             toggleFavorite(clickedImage)
+            showLoader()
+
         }, mainViewModel)
 
         binding.ImageRecycler.adapter = adapter
-
-        showLoader()
-        mainViewModel.loadImagesByCategory("background") { // Assume "background" is your default category
-            hideLoader()
-        }
 
         val categoryViews = arrayOf(
             binding.background,
@@ -78,27 +76,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-
         mainViewModel.images.observe(this) { imageList ->
-            Log.d("MYCODELOG", imageList.toString())
+            Log.d("mycode", imageList.toString())
             val hitsWithFavorites = imageList.hits.map { hit: Hit ->
                 val isFavorite = mainViewModel.getFavorites().value?.any { favorite: Favorites ->
                     favorite.id == hit.id
-                } ?: false // Default to false if the list is null
+                } ?: false
                 HitFav(hit, isFavorite)
             }
-            Log.d("MYCODELOG", "favs:$hitsWithFavorites")
+            Log.d("mycode", "favs:$hitsWithFavorites")
 
             adapter.imageList = hitsWithFavorites
 
             adapter.notifyDataSetChanged()
+            hideLoader()
         }
 
         binding.btnFav.setOnClickListener {
             startActivity(Intent(this@MainActivity, favoritesActivity::class.java))
         }
 
+        hideLoader()
     }
 
     private fun toggleFavorite(image: Hit) {
@@ -112,6 +110,4 @@ class MainActivity : AppCompatActivity() {
     private fun hideLoader() {
         loader.visibility = View.GONE
     }
-
-
 }

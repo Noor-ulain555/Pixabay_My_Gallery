@@ -43,11 +43,7 @@ class GalleryModel(private val Repository: GalleryRepository):ViewModel() {
             Repository.favorites(fav)
 
         }
-    }
-    val picRetro:LiveData<GalleryImg>
-        get() = Repository.picRetro
-
-
+  }
 
     fun loadImagesByCategory(category: String, function: () -> Unit) {
         viewModelScope.launch {
@@ -55,7 +51,6 @@ class GalleryModel(private val Repository: GalleryRepository):ViewModel() {
         }
     }
 
-    // Suspend function to check if an image is a favorite
     suspend fun isFavorite(id: Int): Boolean {
         return Repository.isFavorite(id)
     }

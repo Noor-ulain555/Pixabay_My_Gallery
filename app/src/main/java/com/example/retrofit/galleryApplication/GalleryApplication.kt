@@ -16,7 +16,7 @@ class GalleryApplication:Application() {
     }
     private fun initialize(){
         val galleryAPIs =RetrofitHelper.getInstance().create(GalleryAPIs::class.java)
-        val database= AppDatabase.getquoteDatabase(applicationContext)
+        val database= AppDatabase.getDatabase(applicationContext)
         GalleryRepository =GalleryRepository(galleryAPIs,database,applicationContext)
 
     }

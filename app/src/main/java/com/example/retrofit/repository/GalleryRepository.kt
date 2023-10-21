@@ -20,12 +20,7 @@ class GalleryRepository(
 ) {
     private val picLiveData = MutableLiveData<GalleryImg>()
 
-    val favoriteImageIdsLiveData: MutableLiveData<List<Int>> =
-        MutableLiveData()
-
-    val picRetro: LiveData<GalleryImg>
-        get() = picLiveData
-
+    val favoriteImageIdsLiveData: MutableLiveData<List<Int>> = MutableLiveData()
     val images: LiveData<GalleryImg>
         get() = picLiveData
 
@@ -45,7 +40,7 @@ class GalleryRepository(
     suspend fun getImages(page: Int, category: String) {
         if (networkUtils.isInternetAvailable(applicationContext)) {
 
-            val result = galleryAPIs.getservice(category, page)
+            val result = galleryAPIs.getAPIs(category, page)
 
             if (result.body() != null) {
 

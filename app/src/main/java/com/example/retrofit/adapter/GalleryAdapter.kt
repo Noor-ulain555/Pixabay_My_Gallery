@@ -14,14 +14,14 @@ import com.example.retrofit.model.HitFav
 import com.example.retrofit.viewModel.GalleryModel
 import com.squareup.picasso.Picasso
 
-class ImageAdapter(val context: Context, var imageList: List<HitFav>, private val onFavoriteClick:
+class GalleryAdapter(val context: Context, var imageList: List<HitFav>, private val onFavoriteClick:
     (Hit) -> Unit, private val viewModel: GalleryModel,) :
-    RecyclerView.Adapter<ImageAdapter.MyHolder>() {
+    RecyclerView.Adapter<GalleryAdapter.MyHolder>() {
 
     inner class MyHolder(private val binding: ImagelayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: HitFav) {
-            Picasso.get().load(item.hit.largeImageURL).into(binding.imageView)
+            Picasso.get().load(item.hit.largeImageURL).into(binding.photo)
 
 
             binding.favouriteBtn.setOnClickListener {
